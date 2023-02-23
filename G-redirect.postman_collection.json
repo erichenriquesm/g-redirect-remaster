@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "1df50b2e-bb8b-4836-b504-5322427bc671",
+		"name": "G-redirect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24136418"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Eric\",\r\n    \"email\":\"eric@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"eric@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create redirect",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMjc4LCJleHAiOjE2NzY5NDU4NzgsIm5iZiI6MTY3Njk0MjI3OCwianRpIjoidkhvRkFHb1FZcklnWTdVYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V_Ou44T_yUlzRM74XtYTxdR5jAhE4uRI622NGj0L5zw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Meu redirect\",\r\n    \"link\":\"youtube.com\",\r\n    \"childs\":[\r\n        {\"link\":\"facebook.com.br\", \"max_clicks\": 20},\r\n        {\"link\":\"yohoo.com.br\", \"max_clicks\": 10}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit redirect",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMDI3LCJleHAiOjE2NzY5NDU2MjcsIm5iZiI6MTY3Njk0MjAyNywianRpIjoidEhhVkFnMERkbHFvb1pyOSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pyKa7cecJpbZvhwkvKToHEZN3iBNaEqzgNonJMi7xFc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Meu redirect\",\r\n    \"link\":\"youtube.com\",\r\n    \"childs\":[\r\n        {\"link\":\"facebook.com.br\", \"max_clicks\": 20},\r\n        {\"link\":\"yohoo.com.br\", \"max_clicks\": 20}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate redirects",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMjc4LCJleHAiOjE2NzY5NDU4NzgsIm5iZiI6MTY3Njk0MjI3OCwianRpIjoidkhvRkFHb1FZcklnWTdVYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V_Ou44T_yUlzRM74XtYTxdR5jAhE4uRI622NGj0L5zw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Meu redirect\",\r\n    \"link\":\"youtube.com\",\r\n    \"childs\":[\r\n        {\"link\":\"facebook.com.br\", \"max_clicks\": 20},\r\n        {\"link\":\"yohoo.com.br\", \"max_clicks\": 20}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete redirect",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMjc4LCJleHAiOjE2NzY5NDU4NzgsIm5iZiI6MTY3Njk0MjI3OCwianRpIjoidkhvRkFHb1FZcklnWTdVYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V_Ou44T_yUlzRM74XtYTxdR5jAhE4uRI622NGj0L5zw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Meu redirect\",\r\n    \"link\":\"youtube.com\",\r\n    \"childs\":[\r\n        {\"link\":\"facebook.com.br\", \"max_clicks\": 20},\r\n        {\"link\":\"yohoo.com.br\", \"max_clicks\": 20}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete link",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMjc4LCJleHAiOjE2NzY5NDU4NzgsIm5iZiI6MTY3Njk0MjI3OCwianRpIjoidkhvRkFHb1FZcklnWTdVYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V_Ou44T_yUlzRM74XtYTxdR5jAhE4uRI622NGj0L5zw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Meu redirect\",\r\n    \"link\":\"youtube.com\",\r\n    \"childs\":[\r\n        {\"link\":\"facebook.com.br\", \"max_clicks\": 20},\r\n        {\"link\":\"yohoo.com.br\", \"max_clicks\": 20}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link/child/3/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link",
+						"child",
+						"3",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit link",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMjc4LCJleHAiOjE2NzY5NDU4NzgsIm5iZiI6MTY3Njk0MjI3OCwianRpIjoidkhvRkFHb1FZcklnWTdVYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V_Ou44T_yUlzRM74XtYTxdR5jAhE4uRI622NGj0L5zw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"link\":\"facebook.com\",\r\n    \"max_clicks\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link/child/4/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link",
+						"child",
+						"4",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "acess link",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2OTQyMjc4LCJleHAiOjE2NzY5NDU4NzgsIm5iZiI6MTY3Njk0MjI3OCwianRpIjoidkhvRkFHb1FZcklnWTdVYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V_Ou44T_yUlzRM74XtYTxdR5jAhE4uRI622NGj0L5zw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"link\":\"facebook.com\",\r\n    \"max_clicks\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/link/acess/4/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"link",
+						"acess",
+						"4",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
