@@ -127,6 +127,8 @@ export default {
   },
   methods: {
     openModal() {
+      this.selected_link = null;
+      this.active = -1;
       this.fetchLinks();
     },
     fetchLinks() {

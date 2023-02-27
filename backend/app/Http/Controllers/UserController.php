@@ -76,19 +76,21 @@ class UserController  extends Controller
 
     public function refresh()
     {
-        return response()->json([
-            'status' => 'success',
-            'user' => Auth::user(),
-            'authorisation' => [
-                'token' => Auth::refresh(),
-                'type' => 'bearer',
-            ]
-        ]);
+        return $this->respondWithToken(auth()->refresh());
     }
 
     public function delete(){
         User::where('id', Auth::id())->delete();
         return response()->json(['message' => 'Usuário deletado com sucesso']);
+    }
+
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
     }
 
 }

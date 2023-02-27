@@ -21,6 +21,7 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
         $router->delete('user/', 'UserController@delete');
+        $router->get('revoke/', 'UserController@refresh');
         $router->group(['prefix' => 'link'], function () use ($router) {
             $router->post('/', 'LinkController@create');
             $router->get('/', 'LinkController@list');
